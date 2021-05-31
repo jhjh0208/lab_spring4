@@ -5,21 +5,39 @@
 	<bean id="default-handler-mapping"
 		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" /> <!--첫번째 매핑방법. 후짐. 안씀. -->
 	<bean name="/di/hello.sp4" class="kosmo80.mvc.sp4.HelloController" />
+	
 	<bean id="emp-controller" class="kosmo80.mvc.sp4.EmpController">
 		<property name="methodNameResolver" ref="emp-resolver"></property>
 		<property name="empLogic" ref="emp-logic"></property>
 	</bean>
-	<bean id="url-mapping"
-		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"> <!--두번째 매핑방법. 좋음. 이거씀. 근데 부트로 가면 또 안씀. 부트는 @로 함. -->
+	<bean id="board-controller" class="web.mvc.Board41Controller">
+		<property name="methodNameResolver" ref="board-resolver"/>
+		<property name="boardLogic" ref="board-logic"/>
+	</bean>
+	
+	
+	
+	<bean id="url-mapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"> <!--두번째 매핑방법. 좋음. 이거씀. 근데 부트로 가면 또 안씀. 부트는 @로 함. -->
 		<property name="mappings">
 			<props> <!--자바에서 properties인데 여기서 props태그. -->
-				<prop key="/di/getEmpList.sp4">emp-controller</prop> <!--13~17 초록색 키, 흰색 값. -->
+				<prop key="/board/getBoardList.sp4">board-controller</prop> 
 				<prop key="/di/getInsert.sp4">emp-controller</prop>
 				<prop key="/di/getUpdate.sp4">emp-controller</prop>
 				<prop key="/di/getDelete.sp4">emp-controller</prop>
 			</props>
 		</property>
 	</bean>
+	
+	
+	<bean id="board-resolver"
+		class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+			<props>
+				<prop key="/board/getBoardList.sp4">getboardList</prop>
+			</props>
+		</property>
+	</bean>
+	
 	<bean id="emp-resolver"
 		class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
 		<property name="mappings">
