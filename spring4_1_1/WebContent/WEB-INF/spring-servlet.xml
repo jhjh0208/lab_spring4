@@ -14,6 +14,9 @@
 		<property name="methodNameResolver" ref="board-resolver"/>
 		<property name="boardLogic" ref="board-logic"/>
 	</bean>
+	<bean id="JH-controller" class="eyey.test.JHController">
+		<property name="methodNameResolver" ref="board-resolver"/>
+	</bean>
 	
 	
 	
@@ -21,6 +24,9 @@
 		<property name="mappings">
 			<props> <!--자바에서 properties인데 여기서 props태그. -->
 				<prop key="/board/getBoardList.sp4">board-controller</prop> 
+				<prop key="/board/jsonGetBoardList.sp4">board-controller</prop> 
+				<prop key="/test/test.sp4">JH-controller</prop>
+				<prop key="/di/getInsert.sp4">emp-controller</prop>
 				<prop key="/di/getInsert.sp4">emp-controller</prop>
 				<prop key="/di/getUpdate.sp4">emp-controller</prop>
 				<prop key="/di/getDelete.sp4">emp-controller</prop>
@@ -34,6 +40,8 @@
 		<property name="mappings">
 			<props>
 				<prop key="/board/getBoardList.sp4">getboardList</prop>
+				<prop key="/board/jsonGetBoardList.sp4">jsonGetboardList</prop>
+				<prop key="/test/test.sp4">test</prop>
 			</props>
 		</property>
 	</bean>

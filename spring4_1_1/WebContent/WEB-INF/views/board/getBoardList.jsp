@@ -4,8 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시판 구현 - [webapp]</title>
-<jsp:include page="../common/commonUIglobal.jsp" flush="false"/>
+<title>게시판 구현 - [WEB-INF]</title>
 </head>
 <body>
 게시판 목록 페이지입니다.
