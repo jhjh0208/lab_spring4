@@ -73,9 +73,14 @@ public class Board41Controller extends MultiActionController {
 		rmap.put("mem_name", "김유신");
 		boardList.add(rmap);
 		
+		
 		boardLogic.getBoardList();
 		
 		ModelAndView mav = new ModelAndView();
+		//////////////////////////////
+		mav.addObject("list", boardList);
+		
+		////////////////////
 		
 		String name ="이순신";
 //		mav.setViewName("a");
