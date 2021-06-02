@@ -1,11 +1,16 @@
 package web.mvc;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
+
+import com.util.HashMapBinder;
 
 public class Board41Controller extends MultiActionController {
 	Logger logger = Logger.getLogger(Board41Controller.class);
@@ -25,10 +30,19 @@ public class Board41Controller extends MultiActionController {
 	// request로 유지
 	//메소드를 정의하는 것은 가능하다.
 	//파라미터가 없이도 괜찮은건가?
+	//
 	
-	public ModelAndView getBoardList() {
+	public ModelAndView getBoardList(HttpServletRequest req, HttpServletResponse res) {
 		logger.info("getBoardList 호출 성공");
+		HashMapBinder hmb = new HashMapBinder(req);
+		Map<String,Object> target = new HashMap<>();
+		hmb.bind(target);
+		boardLogic.getBoardList();
 		ModelAndView mav = new ModelAndView();
+		String name ="이순신";
+		mav.setViewName("a.jsp");
+		mav.addObject("name", name);
+		Http
 		return mav;
 	}
 
