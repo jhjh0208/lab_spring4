@@ -30,12 +30,12 @@ public class Board41Controller extends MultiActionController {
 	// request로 유지
 	//메소드를 정의하는 것은 가능하다.
 	//파라미터가 없이도 괜찮은건가?
-	//
+	//여기..
 	
 	public ModelAndView getBoardList(HttpServletRequest req, HttpServletResponse res) {
 		logger.info("getBoardList 호출 성공");
 		HashMapBinder hmb = new HashMapBinder(req);
-		Map<String,Object> target = new HashMap<>();
+		Map<String, Object> target = new HashMap<>();
 		hmb.bind(target);
 		boardLogic.getBoardList();
 		ModelAndView mav = new ModelAndView();
