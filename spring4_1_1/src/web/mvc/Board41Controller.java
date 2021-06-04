@@ -47,7 +47,7 @@ public class Board41Controller extends MultiActionController {
 	// 말하는 것은 앞뒤가 맞지 않는 것입니다. 이상한 태도를 보이는 것이죠
 	// 굳이 없어도 되는 것을 형식적으로 가지고 있어야 한다. doGet안에 있는 것이니까 너도 있어야 해줄거야? 라고 말하는 것이죠
 
-	public ModelAndView getBoardList(HttpServletRequest req, HttpServletResponse res) {
+	public ModelAndView getBoardList(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		
 		logger.info("getBoardList 호출 성공");
 		
@@ -56,70 +56,80 @@ public class Board41Controller extends MultiActionController {
 		hmb.bind(target);
 		
 		List<Map<String,Object>> boardList = null;
-		boardList = new ArrayList<>();
-		Map<String,Object> rmap = new HashMap();
-		rmap.put("mem_id", "tomato");
-		rmap.put("mem_pw", "123");
-		rmap.put("mem_name", "이순신");
-		boardList.add(rmap);
-		rmap = new HashMap<>();
-		rmap.put("mem_id", "apple");
-		rmap.put("mem_pw", "125");
-		rmap.put("mem_name", "강감찬");
-		boardList.add(rmap);
-		rmap = new HashMap<>();
-		rmap.put("mem_id", "tomato");
-		rmap.put("mem_pw", "126");
-		rmap.put("mem_name", "김유신");
-		boardList.add(rmap);
-		
-		
-		boardLogic.getBoardList();
-		
+		boardList=boardLogic.getBoardList(target);//where bm_no=? and bm_title LIKE '%'||?||'%'
+		logger.info("boardList:"+boardList);//
 		ModelAndView mav = new ModelAndView();
+		mav.setViewName("board/getBoardList");
+		mav.addObject("boardList", boardList);
+		//RequestDispatcher view = req.getRequestDispatcher("getBoardList.jsp");
+		//view.forward(req,res);
+		return mav;
+		
+		
+//		boardList = new ArrayList<>();
+//		Map<String,Object> rmap = new HashMap();
+//		rmap.put("mem_id", "tomato");
+//		rmap.put("mem_pw", "123");
+//		rmap.put("mem_name", "이순신");
+//		boardList.add(rmap);
+//		rmap = new HashMap<>();
+//		rmap.put("mem_id", "apple");
+//		rmap.put("mem_pw", "125");
+//		rmap.put("mem_name", "강감찬");
+//		boardList.add(rmap);
+//		rmap = new HashMap<>();
+//		rmap.put("mem_id", "tomato");
+//		rmap.put("mem_pw", "126");
+//		rmap.put("mem_name", "김유신");
+//		boardList.add(rmap);
+//		
+//		
+//		boardLogic.getBoardList();
+		
 		//////////////////////////////
-		mav.addObject("list", boardList);
+//		mav.addObject("list", boardList);
 		
 		////////////////////
 		
-		String name ="이순신";
+//		String name ="이순신";
 //		mav.setViewName("a");
-		mav.addObject("name1", name);
+//		mav.addObject("name1", name);
 		
-		String imsi = HangulConversion.toUTF((String)target.get("mem_name"));
-		logger.info("입력된 이름: "+imsi);
+//		String imsi = HangulConversion.toUTF((String)target.get("mem_name"));
+//		logger.info("입력된 이름: "+imsi);
 //		mav.addObject("mem_name", imsi);
 		
-		HttpSession session = req.getSession();
-		session.setAttribute("name", name);
-		
-		return mav;
+//		HttpSession session = req.getSession();
+//		session.setAttribute("name", name);
+//		
+//		return mav;
 	}
 
 	// json으로 내보내준다. - @RestController:String, @Controller:void, ModelAndView, String
 	public String jsonGetBoardList(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		logger.info("getBoardList 호출 성공");
 		List<Map<String, Object>> boardList = null;
-		boardList = new ArrayList<>();
-		Map<String, Object> rmap = new HashMap();
-		rmap.put("mem_id", "tomato");
-		rmap.put("mem_pw", "123");
-		rmap.put("mem_name", "이순신");
-		boardList.add(rmap);
-		rmap.put("mem_id", "apple");
-		rmap.put("mem_pw", "125");
-		rmap.put("mem_name", "강감찬");
-		boardList.add(rmap);
-		rmap.put("mem_id", "tomato");
-		rmap.put("mem_pw", "126");
-		rmap.put("mem_name", "김유신");
-		boardList.add(rmap);
+		boardList = boardLogic.getBoardList(null);
+//		boardList = new ArrayList<>();
+//		Map<String, Object> rmap = new HashMap();
+//		rmap.put("mem_id", "tomato");
+//		rmap.put("mem_pw", "123");
+//		rmap.put("mem_name", "이순신");
+//		boardList.add(rmap);
+//		rmap.put("mem_id", "apple");
+//		rmap.put("mem_pw", "125");
+//		rmap.put("mem_name", "강감찬");
+//		boardList.add(rmap);
+//		rmap.put("mem_id", "tomato");
+//		rmap.put("mem_pw", "126");
+//		rmap.put("mem_name", "김유신");
+//		boardList.add(rmap);
 		Gson g = new Gson();
 		String imsi = g.toJson(boardList);
 		// 클라이언트에게 나가는 응답의 마임타입과 캐릭터셋(인코딩방식)을 설정함
 		// 마임타입은 application/json으로, 캐릿터넷은 UTF-8로 설정하고 있음
-		res.setContentType("application/json;charset=utf-8");
 		PrintWriter out = res.getWriter();
+		res.setContentType("application/json;charset=utf-8");
 		out.print(imsi);
 //		RequestDispatcher view = req.getRequestDispatcher("jsonGetBoardList.jsp");
 //		view.forward(req, res);

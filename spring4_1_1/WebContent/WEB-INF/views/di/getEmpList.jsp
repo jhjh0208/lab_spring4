@@ -7,6 +7,7 @@
 	//request.setAttribute("empList", empList);
 	//forward방식이다.
 	List<Map<String,Object>> empList = (List<Map<String,Object>>)request.getAttribute("empList");
+	out.print(empList);//구조체 형식의 출력을 볼 수 있다.
 	int size = 0;
 	if(empList!=null){
 		size = empList.size();

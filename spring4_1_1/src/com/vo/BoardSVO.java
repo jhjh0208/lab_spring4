@@ -4,7 +4,7 @@ public class BoardSVO {
 	private int bm_no = 0;//
 	private int bs_seq = 0;//
 	private String bs_file = "";//
-	private double bs_size = 0;//
+	private double bs_size = 0.0;//
 	
 	public int getBm_no() {
 		return bm_no;
