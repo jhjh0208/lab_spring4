@@ -26,6 +26,7 @@
 				<prop key="/board/getBoardList.sp4">board-controller</prop> 
 				<prop key="/board/jsonGetBoardList.sp4">board-controller</prop> 
 				<prop key="/test/test.sp4">JH-controller</prop>
+				<prop key="/board/boardInsert.sp4">board-controller</prop>
 				<prop key="/di/getInsert.sp4">emp-controller</prop>
 				<prop key="/di/getInsert.sp4">emp-controller</prop>
 				<prop key="/di/getUpdate.sp4">emp-controller</prop>
@@ -42,6 +43,7 @@
 				<prop key="/board/getBoardList.sp4">getBoardList</prop>
 				<prop key="/board/jsonGetBoardList.sp4">jsonGetboardList</prop>
 				<prop key="/test/test.sp4">test</prop>
+				<prop key="/board/boardInsert.sp4">boardInsert</prop>
 			</props>
 		</property>
 	</bean>

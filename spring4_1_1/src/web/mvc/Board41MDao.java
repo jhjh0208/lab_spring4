@@ -17,6 +17,7 @@ public class Board41MDao {
 	public List<Map<String, Object>> getBoardList(Map<String, Object> pmap) {
 		List<Map<String, Object>> boardList = null;
 		//List<BoardMVO> boardList2 = null;
+		logger.info("getBoardList 호출 성공");
 		boardList = sqlSessionTemplate.selectList("getBoardList",pmap);
 		/*
 		boardList2 = sqlSessionTemplate.selectList("getBoardMap",pmap);
@@ -29,9 +30,12 @@ public class Board41MDao {
 		*/
 		return boardList;
 	}
-	public void boardMInsert(Map<String, Object> pmap) {
-		// TODO Auto-generated method stub
-		
+	public int boardMInsert(Map<String, Object> pmap) {
+		logger.info("boardMInsert 호출 성공");
+		int result = 0;
+		result = 1;
+		sqlSessionTemplate.insert("boardMINsert", pmap);
+		return result;
 	}
 	
 }

@@ -8,17 +8,21 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
+<script type="text/javascript">
+	function test() {
+		if (true && true) {
+			document.write("같다.", "<br>");
+		} else {
+			document.write("다르다");
+		}
+	}
+</script>
 </head>
 <body>
+	여기
 	<script type="text/javascript">
-		let age = prompt('당신의 나이는?', 0);
-		alert('age:' + age);
-		alert(`age2:${age}`);
-		document.write(`${age}`);
+		test();
 	</script>
-	<div>`age2:{age}`</div>
-	<div>`age2:${age}`</div>
-	<input type='text' value=`${age}`>
-	<input type='text' value="sdfsdfds">
+	<br> 저기
 </body>
 </html>

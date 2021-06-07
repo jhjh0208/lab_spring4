@@ -7,7 +7,7 @@
 			<value>oracle.jdbc.driver.OracleDriver</value>
 		</property>
 		<property name="url">
-			<value>jdbc:oracle:thin:@127.0.0.1:1521:orc111</value>
+			<value>jdbc:oracle:thin:@127.0.0.1:1521:orcl11</value>
 		</property>
 		<property name="username">
 			<value>scott</value>
@@ -16,23 +16,9 @@
 			<value>tiger</value>
 		</property>
 	</bean>
-<!-- 	<bean id="data-source-target2" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName">
-			<value>oracle.jdbc.driver.MySqlDriver</value>
-		</property>
-		<property name="url">
-			<value>jdbc:mysqk://127.0.0.1:3306:sales</value>
-		</property>
-		<property name="username">
-			<value>root</value>
-		</property>
-		<property name="password">
-			<value>pass</value>
-		</property>
-	</bean> -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="configLocation" value="WEB-INF/mybatis-config.xml"></property>
-		<property name="dataSource" ref="data-source-target"></property>
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="WEB-INF/mybatis-config.xml"/>
+		<property name="dataSource" ref="data-source-target"/>		
 	</bean>
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory"/>
