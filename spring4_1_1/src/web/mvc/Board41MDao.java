@@ -29,5 +29,9 @@ public class Board41MDao {
 		*/
 		return boardList;
 	}
+	public void boardMInsert(Map<String, Object> pmap) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

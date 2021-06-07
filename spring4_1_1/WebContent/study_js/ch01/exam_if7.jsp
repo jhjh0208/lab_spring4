@@ -12,7 +12,7 @@
         <script type="text/javascript">
         function test(){
         let age = prompt('당신의 나이는?' ,0);
-        if(0){ //0이 아니면 1도 트루 "안녕"도 트루
+        if("안녕"){ //0이 아니면 1도 트루 "안녕"도 트루
             document.write("당신은 성인입니다.");
         }
         else{
