@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function CheckWeight(name, height, weight){
+            this.userName = name;
+            this.userHeight = height;
+            this.userWeight = weight;
+            this.minWeight;
+            this.manWeight;
+            this.userInfo = function(){
+                let str = "";
+                str +="이름 : " +this.userName+",";
+                str +="키 : " +this.userHeight+",";
+                str +="몸무게 : " +this.userWeight+"<br>";
+                return str;
+            }
+            this.getResult = function(){
+                this.minWeight = (this.userHeight - 100)*0.9-5;
+                this.maxWeight = (this.userHeight - 100)*0.9+5;
+                if(this.userWeight>=this.minWeight && this.userWeight<=this.maxWeight){
+                    return "표준 체중입니다.";
+                }
+                else if(this.userWeight < this.minWeight){
+                    return "저체중입니다."
+                }else
+                return "과체중입니다."
+            }
+        }
+        const kim = new CheckWeight("김유신", 178, 61);
+        const Lee = new CheckWeight("이재훈", 175, 63.5);
+        const Gang = new CheckWeight("강감찬", 188, 110);
+        console.log(kim);
+        console.log(Lee);
+        console.log(Gang);
+        document.write(kim.userInfo(),'<br>');
+        document.write(kim.getResult(),'<br>');
+        document.write(Lee.userInfo(),'<br>');
+        document.write(Lee.getResult(),'<br>');
+        document.write(Gang.userInfo(),'<br>');
+        document.write(Gang.getResult(),'<br>');
+        
+    </script>
+</body>
+</html>
+
