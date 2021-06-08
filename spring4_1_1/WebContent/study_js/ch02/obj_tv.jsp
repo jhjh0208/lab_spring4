@@ -1,3 +1,4 @@
+  
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,16 +17,14 @@
 		document.write("가격 : "+tv.price,"<br>");
 	}
 	tv.info();
-	
 	const today = new Date();
 	const mon = today.getMonth();
 	const date = today.getDate();
 	const day = today.getDay();
-	const worldCup = new Date(2020, 4, 30);
+	const worldCup = new Date(2020,4,30);
 	const mon = worldCup.getMonth();
 	const date = worldCup.getDate();
 	const day = worldCup.getDay();
-	
 </script>
 </body>
 </html>
