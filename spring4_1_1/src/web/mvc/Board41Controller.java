@@ -128,8 +128,8 @@ public class Board41Controller extends MultiActionController {
 		String imsi = g.toJson(boardList);
 		// 클라이언트에게 나가는 응답의 마임타입과 캐릭터셋(인코딩방식)을 설정함
 		// 마임타입은 application/json으로, 캐릿터넷은 UTF-8로 설정하고 있음
-		PrintWriter out = res.getWriter();
 		res.setContentType("application/json;charset=utf-8");
+		PrintWriter out = res.getWriter();
 		out.print(imsi);
 //		RequestDispatcher view = req.getRequestDispatcher("jsonGetBoardList.jsp");
 //		view.forward(req, res);
