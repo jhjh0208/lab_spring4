@@ -106,7 +106,7 @@ public class Board41Controller extends MultiActionController {
 	}
 
 	// json으로 내보내준다. - @RestController:String, @Controller:void, ModelAndView, String
-	public String jsonGetBoardList(HttpServletRequest req, HttpServletResponse res) throws Exception {
+	public void jsonGetBoardList(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		logger.info("getBoardList 호출 성공");
 		List<Map<String, Object>> boardList = null;
 		boardList = boardLogic.getBoardList(null);
@@ -133,7 +133,7 @@ public class Board41Controller extends MultiActionController {
 		out.print(imsi);
 //		RequestDispatcher view = req.getRequestDispatcher("jsonGetBoardList.jsp");
 //		view.forward(req, res);
-		return imsi;
+//		return imsi;
 
 	}
 	

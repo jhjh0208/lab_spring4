@@ -41,7 +41,7 @@
 		<property name="mappings">
 			<props>
 				<prop key="/board/getBoardList.sp4">getBoardList</prop>
-				<prop key="/board/jsonGetBoardList.sp4">jsonGetboardList</prop>
+				<prop key="/board/jsonGetBoardList.sp4">jsonGetBoardList</prop>
 				<prop key="/test/test.sp4">test</prop>
 				<prop key="/board/boardInsert.sp4">boardInsert</prop>
 			</props>
