@@ -38,5 +38,13 @@ public class Board41MDao {
 		sqlSessionTemplate.insert("boardMInsert", pmap);
 		return result;
 	}
+	public int getBmGroup() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	public void bmStepUpdate(Map<String, Object> pmap) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

@@ -17,8 +17,10 @@
 	<bean id="JH-controller" class="eyey.test.JHController">
 		<property name="methodNameResolver" ref="board-resolver"/>
 	</bean>
-	
-	
+	<bean id="bsboard-controller" class="web.mvc.BS_BoardController">
+		<property name="methodNameResolver" ref="board-resolver"/>
+		<property name="bsboardLogic" ref="bsboard-logic"/>
+	</bean>
 	
 	<bean id="url-mapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"> <!--두번째 매핑방법. 좋음. 이거씀. 근데 부트로 가면 또 안씀. 부트는 @로 함. -->
 		<property name="mappings">
@@ -27,6 +29,9 @@
 				<prop key="/board/jsonGetBoardList.sp4">board-controller</prop> 
 				<prop key="/test/test.sp4">JH-controller</prop>
 				<prop key="/board/boardInsert.sp4">board-controller</prop>
+				<prop key="/bs_board/boardInsert.sp4">bsboard-controller</prop>
+				<prop key="/bs_board/getBoardList.sp4">bsboard-controller</prop>
+				<prop key="/bs_board/jsonGetBoardList.sp4">bsboard-controller</prop>
 				<prop key="/di/getInsert.sp4">emp-controller</prop>
 				<prop key="/di/getInsert.sp4">emp-controller</prop>
 				<prop key="/di/getUpdate.sp4">emp-controller</prop>
@@ -44,6 +49,9 @@
 				<prop key="/board/jsonGetBoardList.sp4">jsonGetBoardList</prop>
 				<prop key="/test/test.sp4">test</prop>
 				<prop key="/board/boardInsert.sp4">boardInsert</prop>
+				<prop key="/bs_board/getBoardList.sp4">getBoardList</prop>
+				<prop key="/bs_board/boardInsert.sp4">boardInsert</prop>
+				<prop key="/bs_board/jsonGetBoardList.sp4">jsonGetBoardList</prop>
 			</props>
 		</property>
 	</bean>
