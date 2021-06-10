@@ -49,42 +49,38 @@
 		$('#dg_board').datagrid({
 			columns:[[
 				{field:'BM_NO', title:'글번호', width:100,align:'center'},
-				{field:'BM_TITLE', title:'제목', width:100,align:'left'},
-				{field:'BM_DATE', title:'작성일', width:300,align:'center'},
-				{field:'BM_FILE', title:'첨부파일', width:200,align:'center'},
-				{field:'BM_HIT', title:'조회수', width:100,align:'center'}				
-				
+				{field:'BM_TITLE', title:'제목', width:400,align:'left'},
+				{field:'BM_DATE', title:'작성일', width:150,align:'center'},
+				{field:'BS_FILE', title:'첨부파일', width:230,align:'center'},
+				{field:'BM_HIT', title:'조회수', width:100,align:'center'}
 			]]
 		});
 		  $('#btn_sel').bind('click', function(){
 		        //alert('조회');
 		        boardSel();
 		    });
-		});
 		  $('#btn_ins').bind('click', function(){
 		        //alert('입력');
 		        boardIns();
 		    });
-		});
 		  $('#btn_upd').bind('click', function(){
 		        //alert('수정');
-		        boarUpd();
+		        boardUpd();
 		    });
-		});
 		  $('#btn_del').bind('click', function(){
 		        //alert('삭제');
 		        boardDel();
 		    });
 	});
 </script>
-<table class="easyui-datagrid" data-options="title:'게시판',toolbar:'#tb_board'" style="width:1000px;height:350px">
+<table id="dg_board"  class="easyui-datagrid" data-options="title:'게시판',toolbar:'#tb_board'" style="width:1000px;height:350px">
     <thead>  
         <tr>
-            <th data-options="width:150">글번호</th>
-            <th data-options="width:300">제목</th>
-            <th data-options="width:300">작성일</th>
-            <th data-options="width:200">첨부파일</th>
-            <th data-options="width:150">조회수</th>
+            <th>글번호</th>
+            <th>제목</th>
+            <th>작성일</th>
+            <th>첨부파일</th>
+            <th>조회수</th>
         </tr>
     </thead>
     <tbody>
@@ -104,23 +100,23 @@ else{//조회 결과가 있는데...
 %>     
         
         <tr>
-            <th><%=rmap.get("BM_NO") %></th>
-            <th><%=rmap.get("BM_TITLTLE") %></th>
-            <th><%=rmap.get("BM_DATE") %></th>
-            <th><%=rmap.get("BM_FILE") %></th>
-            <th><%=rmap.get("BM_HIT") %></th>
+            <td><%=rmap.get("BM_NO") %></td>
+            <td><%=rmap.get("BM_TITLE") %></td>
+            <td><%=rmap.get("BM_DATE") %></td>
+            <td><%=rmap.get("BS_FILE") %></td>
+            <td><%=rmap.get("BM_HIT") %></td>
         </tr>
 <%
 	}/////////////end of for
-}/////////////////end of eles
+}/////////////////end of else
 %>        
     </tbody>
 </table>
     <div id="tb_board" style="padding:2px 5px;">
-        <a id="btn_sle"href="#" class="easyui-linkbutton" iconCls="icon-search" plain="true">조회</a>
-        <a id="btn_ins"href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true">입력</a>
-        <a id="btn_upd"href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true">수정</a>
-        <a id="btn_del"href="#" class="easyui-linkbutton" iconCls="icon-cancel" plain="true">삭제</a>
+        <a id="btn_sel" href="#" class="easyui-linkbutton" iconCls="icon-search" plain="true">조회</a>
+        <a id="btn_ins" href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true">입력</a>
+        <a id="btn_upd" href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true">수정</a>
+        <a id="btn_del" href="#" class="easyui-linkbutton" iconCls="icon-cancel" plain="true">삭제</a>
     </div>   
 </body>
 </html>
