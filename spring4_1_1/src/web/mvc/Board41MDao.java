@@ -17,7 +17,6 @@ public class Board41MDao {
 	public List<Map<String, Object>> getBoardList(Map<String, Object> pmap) {
 		List<Map<String, Object>> boardList = null;
 		//List<BoardMVO> boardList2 = null;
-		logger.info("getBoardList 호출 성공");
 		boardList = sqlSessionTemplate.selectList("getBoardList",pmap);
 		/*
 		boardList2 = sqlSessionTemplate.selectList("getBoardMap",pmap);
@@ -28,23 +27,24 @@ public class Board41MDao {
 			logger.info("bmvo : "+bmvo.getBs_file());
 		}
 		*/
-		logger.info(boardList);
 		return boardList;
 	}
 	public int boardMInsert(Map<String, Object> pmap) {
 		logger.info("boardMInsert 호출 성공");
 		int result = 0;
 		result = 1;
-		sqlSessionTemplate.insert("boardMInsert", pmap);
+		sqlSessionTemplate.insert("boardMInsert",pmap);
 		return result;
 	}
-	public int getBmGroup() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 	public void bmStepUpdate(Map<String, Object> pmap) {
-		// TODO Auto-generated method stub
-		
+		logger.info("bmStepUpdate 호출 성공");
+		sqlSessionTemplate.insert("bmStepUpdate",pmap);		
+	}
+	public int getBmGroup() {
+		logger.info("getBmGroup 호출 성공");
+		int result = 0;
+		result = sqlSessionTemplate.selectOne("getBmGroup");		
+		return result;
 	}
 	
 }
