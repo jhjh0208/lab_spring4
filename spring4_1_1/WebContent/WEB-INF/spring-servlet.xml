@@ -29,7 +29,7 @@
 				<prop key="/board/jsonGetBoardList.sp4">board-controller</prop> 
 				<prop key="/test/test.sp4">JH-controller</prop>
 				<prop key="/board/boardInsert.sp4">board-controller</prop>
-				<prop key="/board/boardInsert.sp4">board-controller</prop> //
+				<prop key="/board/getBoardDetail.sp4">board-controller</prop>
 				<prop key="/bs_board/boardInsert.sp4">bsboard-controller</prop>
 				<prop key="/bs_board/getBoardList.sp4">bsboard-controller</prop>
 				<prop key="/bs_board/jsonGetBoardList.sp4">bsboard-controller</prop>

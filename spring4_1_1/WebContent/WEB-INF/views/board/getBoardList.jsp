@@ -26,11 +26,11 @@
 <script type="text/javascript">
 	function boardSel(){
 		$('#dg_board').datagrid({
-			url:'./jsonGetBoardList.sp4'
-			,onLoadSuccess: function(){
-				alert("조회 호출 성공");
-			}
-		});
+		    url:'./jsonGetBoardList.sp4'
+           ,onLoadSuccess: function(){
+       			alert("조회 호출 성공");
+    		}		    
+		});			
 	}
 	function boardIns(){
 		
@@ -47,34 +47,34 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#dg_board').datagrid({
-			columns:[[
-				{field:'BM_NO', title:'글번호', width:100,align:'center'},
-				{field:'BM_TITLE', title:'제목', width:400,align:'left'},
-				{field:'BM_DATE', title:'작성일', width:150,align:'center'},
-				{field:'BS_FILE', title:'첨부파일', width:230,align:'center'},
-				{field:'BM_HIT', title:'조회수', width:100,align:'center'}
-			]]
-		});
-		  $('#btn_sel').bind('click', function(){
-		        //alert('조회');
-		        boardSel();
-		    });
-		  $('#btn_ins').bind('click', function(){
-		        //alert('입력');
-		        boardIns();
-		    });
-		  $('#btn_upd').bind('click', function(){
-		        //alert('수정');
-		        boardUpd();
-		    });
-		  $('#btn_del').bind('click', function(){
-		        //alert('삭제');
-		        boardDel();
-		    });
+		    columns:[[
+		        {field:'BM_NO',title:'글번호',width:100,align:'center'},
+		        {field:'BM_TITLE',title:'제목',width:400,align:'left'},
+		        {field:'BM_DATE',title:'작성일',width:150,align:'center'},
+		        {field:'BS_FILE',title:'첨부파일',width:230,align:'center'},
+		        {field:'BM_HIT',title:'조회수',width:100,align:'center'}
+		    ]]
+		});		
+	    $('#btn_sel').bind('click', function(){
+	        //alert('조회');
+	        boardSel();
+	    });		
+	    $('#btn_ins').bind('click', function(){
+	        //alert('입력');
+	        boardIns();
+	    });		
+	    $('#btn_upd').bind('click', function(){
+	        //alert('수정');
+	        boardUpd();
+	    });		
+	    $('#btn_del').bind('click', function(){
+	        //alert('삭제');
+	        boardDel();
+	    });		
 	});
 </script>
-<table id="dg_board"  class="easyui-datagrid" data-options="title:'게시판',toolbar:'#tb_board'" style="width:1000px;height:350px">
-    <thead>  
+<table id="dg_board" class="easyui-datagrid" data-options="title:'게시판',toolbar:'#tb_board'" style="width:1000px;height:350px">
+    <thead>
         <tr>
             <th>글번호</th>
             <th>제목</th>
@@ -85,23 +85,22 @@
     </thead>
     <tbody>
 <%
-//조회 결과 없는거야?
-if(size==0){
-%>        
+//조회 결과가 없는 거야?
+if(size==0){		
+%>    
         <tr>
-			<th colspan="5">조회결과가 없습니다.</th>        
-        </tr>  
+            <td colspan="5">조회결과가 없습니다.</td>
+        </tr>
 <%
 }
-else{//조회 결과가 있는데...
-	for(int i=0; i<size; i++){
-       Map<String,Object> rmap = boardList.get(i);
-       if(i==size) break;
-%>     
-        
+else{//조회 결과가 있는데....
+	for(int i=0;i<size;i++){
+		Map<String,Object> rmap = boardList.get(i);
+		if(i==size) break;
+%>    	
         <tr>
             <td><%=rmap.get("BM_NO") %></td>
-            <td><a href="getBoardDetail. <%=rmap.get("BM_TITLE") %></td>
+            <td><a href="getBoardDetail.sp4?bm_no=<%=rmap.get("BM_NO")%>"><%=rmap.get("BM_TITLE") %></a></td>
             <td><%=rmap.get("BM_DATE") %></td>
             <td><%=rmap.get("BS_FILE") %></td>
             <td><%=rmap.get("BM_HIT") %></td>
@@ -109,7 +108,7 @@ else{//조회 결과가 있는데...
 <%
 	}/////////////end of for
 }/////////////////end of else
-%>        
+%>
     </tbody>
 </table>
     <div id="tb_board" style="padding:2px 5px;">
