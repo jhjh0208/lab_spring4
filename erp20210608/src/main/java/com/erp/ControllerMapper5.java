@@ -18,9 +18,9 @@ public class ControllerMapper5 {
 				if("emp".equals(work)) {
 					//로그인 컨트롤러
 					controller = new EmpController(requestName);
-				}else if("myService".equals(work)) {
-					//myService메뉴 
-					//controller = new MyServiceController(requestName);
+				}else if("nexa".equals(work)) {
+					//넥사크로 전담 처리
+					controller = new NexaController(requestName);
 				}
 			}
 		return controller;

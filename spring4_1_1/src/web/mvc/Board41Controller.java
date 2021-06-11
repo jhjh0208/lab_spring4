@@ -104,6 +104,12 @@ public class Board41Controller extends MultiActionController {
 //		
 //		return mav;
 	}
+	public ModelAndView getBoardDetail(HttpServletRequest req, HttpServletResponse res) throws Exception {
+		
+	}
+	
+	}
+	
 
 	// json으로 내보내준다. - @RestController:String, @Controller:void, ModelAndView, String
 	public void jsonGetBoardList(HttpServletRequest req, HttpServletResponse res) throws Exception {
