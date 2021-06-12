@@ -154,7 +154,7 @@ public class Board41Controller extends MultiActionController {
 //		view.forward(req, res);
 //		return imsi;
 
-	}
+	} 
 	
 	public void boardInsert(HttpServletRequest req, HttpServletResponse res) 
 	throws Exception
