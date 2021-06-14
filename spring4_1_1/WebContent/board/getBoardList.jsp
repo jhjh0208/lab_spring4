@@ -61,16 +61,16 @@
     <!--=========================== [[글쓰기 화면 시작]] =============================-->
     <div id="dlg_ins" class="easyui-dialog" title="글쓰기" data-options="iconCls:'icon-save'" style="width:600px;height:350px;padding:10px">
         <div style="margin-bottom:20px">
-            <input class="easyui-textbox" label="Email:" labelPosition="top" data-options="prompt:'Enter a email address...',validType:'email'" style="width:100%;">
+            <input class="easyui-textbox" label="제목:" labelPosition="top" data-options="prompt:'제목을 입력하세요.',validType:'email'" style="width:100%;">
         </div>
         <div style="margin-bottom:20px">
-            <input class="easyui-textbox" label="First Name:" labelPosition="top" style="width:100%;">
+            <input class="easyui-textbox" label="작성자:" labelPosition="top" style="width:100%;">
         </div>
         <div style="margin-bottom:20px">
-            <input class="easyui-textbox" label="Last Name:" labelPosition="top" style="width:100%;">
+            <input class="easyui-textbox" label="내용:" labelPosition="top" style="width:100%;">
         </div>
         <div style="margin-bottom:20px">
-            <input class="easyui-textbox" label="Company:" labelPosition="top" style="width:100%;">
+            <input class="easyui-textbox" label="Email" labelPosition="top" style="width:100%;">
         </div>
         
         <div>

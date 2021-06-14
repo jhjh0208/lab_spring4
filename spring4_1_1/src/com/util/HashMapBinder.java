@@ -15,7 +15,7 @@ public class HashMapBinder {
 		this.request = request;
 	}
 	public void bind(Map<String,Object> target) {
-		Enumeration en = request.getParameterNames();
+		Enumeration en = request.getParameterNames();//배열 구조체 묶음 생성.
 		//<input type="text" name="mem_id"
 		while(en.hasMoreElements()) {
 			String key = (String)en.nextElement();

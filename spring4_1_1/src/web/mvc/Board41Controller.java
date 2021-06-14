@@ -54,7 +54,7 @@ public class Board41Controller extends MultiActionController {
 		HashMapBinder hmb = new HashMapBinder(req);
 		Map<String, Object> target = new HashMap<>();
 		hmb.bind(target);
-		
+		target.put("gubun","");
 		List<Map<String,Object>> boardList = null;
 		boardList=boardLogic.getBoardList(target);//where bm_no=? and bm_title LIKE '%'||?||'%'
 		logger.info("boardList:"+boardList);//
@@ -104,6 +104,14 @@ public class Board41Controller extends MultiActionController {
 //		
 //		return mav;
 	}
+	/********************************************************************************************************
+	 * 게시글 상세보기 구현
+	 * @param req
+	 * @param res
+	 * @return ModelAndView
+	 * @throws Exception
+	 * 주의사항 - 전체조회와 하나로 합쳐 지니까 target에 구분값을 추가할 것.
+	 ********************************************************************************************************/
 	public ModelAndView getBoardDetail(HttpServletRequest req, HttpServletResponse res) 
 			throws Exception
 	{
@@ -111,6 +119,7 @@ public class Board41Controller extends MultiActionController {
 		HashMapBinder hmb = new HashMapBinder(req);
 		Map<String,Object> target = new HashMap<>();
 		hmb.bind(target);//bm_no값 담음.
+		target.put("gubun", "detail");
 		logger.info("bm_no : "+target.get("bm_no"));
 		List<Map<String,Object>> boardDetail = null;
 		boardDetail=boardLogic.getBoardList(target);//where bm_no=? and bm_title LIKE '%'||?||'%'
@@ -127,8 +136,11 @@ public class Board41Controller extends MultiActionController {
 	// json으로 내보내준다. - @RestController:String, @Controller:void, ModelAndView, String
 	public void jsonGetBoardList(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		logger.info("getBoardList 호출 성공");
+		HashMapBinder hmb = new HashMapBinder(req);
+		Map<String, Object> target = new HashMap<>();
+		hmb.bind(target);
 		List<Map<String, Object>> boardList = null;
-		boardList = boardLogic.getBoardList(null);
+		boardList = boardLogic.getBoardList(target);
 //		boardList = new ArrayList<>();
 //		Map<String, Object> rmap = new HashMap();
 //		rmap.put("mem_id", "tomato");

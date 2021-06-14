@@ -40,6 +40,14 @@ public class Board41MDao {
 		logger.info("bmStepUpdate 호출 성공");
 		sqlSessionTemplate.insert("bmStepUpdate",pmap);		
 	}
+	public void hitCount(int bm_no) {
+		logger.info("hitCount 호출 성공");
+		sqlSessionTemplate.update("hitCount",bm_no);		
+	}
+//	public void boardSInsert(int bm_no) {
+//		logger.info("boardSInsert 호출 성공");
+//		sqlSessionTemplate.update("boardSInsert",bm_no);		
+//	}
 	public int getBmGroup() {
 		logger.info("getBmGroup 호출 성공");
 		int result = 0;
