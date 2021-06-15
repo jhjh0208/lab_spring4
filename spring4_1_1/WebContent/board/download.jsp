@@ -2,11 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.*,java.net.*" %>    
 <%
-	String b_file = request.getParameter("b_file");
+	request.setCharacterEncoding("UTF-8");
+	String b_file = request.getParameter("bs_file");
 	String fname = b_file;
 	out.print("b_file: 8->euc"+b_file);		
 	out.print("<br>");		
-	String filePath = "D://portfolio_ljh//lab_spring4//spring4_1_1//WebContent//pds//"; // 절대경로.	
+	String filePath = "D://programming//portfolio_ljh//lab_spring4//spring4_1_1//WebContent//pds//"; // 절대경로.	
 	File file = new File(filePath,b_file.trim());
  	String mimeType = getServletContext().getMimeType(file.toString());
 	if(mimeType == null){
@@ -34,7 +35,6 @@
 		if(sos != null) sos.close();
 		if(fis != null) fis.close();
 	}
-
 %>  
   
 <html>

@@ -54,7 +54,6 @@ public class Board41Controller extends MultiActionController {
 		HashMapBinder hmb = new HashMapBinder(req);
 		Map<String, Object> target = new HashMap<>();
 		hmb.bind(target);
-		target.put("gubun","");
 		List<Map<String,Object>> boardList = null;
 		boardList=boardLogic.getBoardList(target);//where bm_no=? and bm_title LIKE '%'||?||'%'
 		logger.info("boardList:"+boardList);//
@@ -175,7 +174,7 @@ public class Board41Controller extends MultiActionController {
 		HashMapBinder hmb = new HashMapBinder(req);
 		Map<String, Object> pmap = new HashMap<>();
 		//사용자가 입력한 값이나 서버에서 클라이언트에게 요청한 값 넘김.
-		hmb.bind(pmap);
+		hmb.multiBind(pmap);
 		int result = 0;
 		result = boardLogic.boardInsert(pmap);
 		if(result ==1) {

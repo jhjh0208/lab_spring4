@@ -1,0 +1,15 @@
+Bracket Pair Colorizer
+indent-rainbow
+Auto Rename Tag
+CSS Peek
+HTML CSS Support
+Java Extension Pack
+JavaScript (ES6) code snippets
+Spring Initializr Java Support
+Tomcat for Java
+ESLint
+
+
+
+
+
