@@ -49,8 +49,7 @@ public class Board41Controller extends MultiActionController {
 
 	public ModelAndView getBoardList(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		
-		logger.info("getBoardList 호출 성공");
-		
+		logger.info("getBoardList 호출 성공");	
 		HashMapBinder hmb = new HashMapBinder(req);
 		Map<String, Object> target = new HashMap<>();
 		hmb.bind(target);
@@ -178,12 +177,11 @@ public class Board41Controller extends MultiActionController {
 		int result = 0;
 		result = boardLogic.boardInsert(pmap);
 		if(result ==1) {
-//			res.sendRedirect("./getBoardList.sp4");
+			res.sendRedirect("./getBoardList.sp4");
 		}
 		else {
 			res.sendRedirect("등록실패 페이지 이동처리");
 		}
-		
 		
 	}
 }
