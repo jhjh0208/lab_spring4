@@ -21,4 +21,8 @@ public class Board41SDao {
 		sqlSessionTemplate.insert("boardSInsert", pmap);
 		return result;
 	}
+
+	public void boardSDelete(Map<String, Object> pmap) {
+		
+	}
 }

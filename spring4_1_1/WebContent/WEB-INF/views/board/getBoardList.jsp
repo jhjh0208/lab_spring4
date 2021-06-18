@@ -26,7 +26,7 @@
 <script type="text/javascript">
 	function boardSel(){
 		$('#dg_board').datagrid({
-		    url:'./getBoardList.sp4'
+		    url:'./jsonGetBoardList.sp4'
            ,onLoadSuccess: function(){
        			alert("조회 호출 성공");
     		}		    
@@ -79,7 +79,7 @@
 	});
 </script>
 <table id="dg_board" class="easyui-datagrid" data-options="title:'게시판',toolbar:'#tb_board', width:1000">
-   <!--  <thead>
+    <thead>
         <tr>
             <th data-options="field:'BM_NO', width:100">글번호</th>
             <th data-options="field:'BM_TITLE', width:100">제목</th>
@@ -87,7 +87,7 @@
             <th data-options="field:'BS_FILE', width:100">첨부파일</th>
             <th data-options="field:'BM_HIT', width:100">조회수</th>
         </tr>
-    </thead> -->
+    </thead>
     <tbody>
 <%
 //조회 결과가 없는 거야?
@@ -122,7 +122,20 @@ else{//조회 결과가 있는데....
             <a href="getBoardDetail.sp4?bm_no=<%=rmap.get("BM_NO")%>" style="text-decoration:none;"><%=rmap.get("BM_TITLE") %></a></td>
             
             <td><%=rmap.get("BM_DATE") %></td>
-            <td><a href="download.jsp?bs_file=<%=rmap.get("BS_FILE") %>" style="text-decoration:none;"><%=rmap.get("BS_FILE") %></a></td>
+            <td>
+<%
+	if(rmap.get("BS_FILE")==null || rmap.get("BS_FILE").toString().length()==0){
+%>            
+		<%="" %>
+<%
+	}
+	else{
+%>
+            <a href="download.jsp?bs_file=<%=rmap.get("BS_FILE") %>" style="text-decoration:none;"><%=rmap.get("BS_FILE") %></a>
+<%
+	}
+%>            
+            </td>
             <td><%=rmap.get("BM_HIT") %></td>
         </tr>
 <%

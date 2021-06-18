@@ -31,6 +31,7 @@
 			<props> <!--자바에서 properties인데 여기서 props태그. -->
 				<prop key="/upload/uploadForm.sp4">upload-controller</prop>
 				<prop key="/board/getBoardList.sp4">board-controller</prop> 
+				<prop key="/board/boardDelete.sp4">board-controller</prop> 
 				<prop key="/board/jsonGetBoardList.sp4">board-controller</prop> 
 				<prop key="/test/test.sp4">JH-controller</prop>
 				<prop key="/board/boardInsert.sp4">board-controller</prop>
@@ -45,14 +46,13 @@
 			</props>
 		</property>
 	</bean>
-	
-	
 	<bean id="board-resolver"
 		class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
 		<property name="mappings">
 			<props>
 				<prop key="/upload/uploadForm.sp4">uploadForm</prop>
 				<prop key="/board/getBoardDetail.sp4">getBoardDetail</prop>
+				<prop key="/board/boardDelete.sp4">boardDelete</prop>
 				<prop key="/board/getBoardList.sp4">getBoardList</prop>
 				<prop key="/board/jsonGetBoardList.sp4">jsonGetBoardList</prop>
 				<prop key="/test/test.sp4">test</prop>
