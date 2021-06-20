@@ -69,15 +69,13 @@
 	}		
 	function boardDelAction(){
 		console.log("삭제확인 호출");
-		let db_pw = <%=bm_pw%>;//sadf
+		let db_pw = <%=bm_pw%>;
 		
 		let u_pw = $("#user_pw").textbox('getValue');
 		if(db_pw == u_pw){
-			$.messenger.confirm('Comfirm', '정말 삭제할거야?', function(r){
+			$.messager.confirm('Comfirm', '정말 삭제할거야?', function(r){
 				if (r){
-					location.href="";
-					boardDelete.sp4?bm_no=<%=bm_no%>&bs_file=<%=bs_file%>
-					//location.href="./getBoardList.sp4";
+					location.href="boardDelete.sp4?bm_no=<%=bm_no%>&bs_file=<%=bs_file%>";
 				}
 			});			
 		}else{
@@ -134,7 +132,7 @@
 	    	<tr>
 	    	<td>비밀번호</td>
 	    	<td><input id="bm_pw" value="<%=bm_pw%>" name="bm_pw" class="easyui-passwordbox"></td>
-	    	</tr>	    	
+	    	</tr>	    	 
 	   </table>
 	 <div id="tb_read" style="padding:2px 5px;" align="center">
 	    <a href="javascript:repleForm()" class="easyui-linkbutton" iconCls="icon-edit" plain="true">댓글쓰기</a>

@@ -77,7 +77,7 @@ public class HashMapBinder {
 	public void bind(Map<String,Object> target) {
 		Enumeration en = request.getParameterNames();//배열 구조체 묶음
 		//<input type="text" name="mem_id"
-		while(en.hasMoreElements()) {
+		while(en.hasMoreElements()) {//요소를 더 갖고 있냐?
 			String key = (String)en.nextElement();
 			logger.info("value:"+request.getParameter(key));
 			target.put(key, request.getParameter(key));

@@ -220,10 +220,10 @@ public class Board41Controller extends MultiActionController {
 	public void boardDelete(HttpServletRequest req, HttpServletResponse res) 
 			throws Exception
 	{
-		logger.info("boardUpdate호출 성공");
+		logger.info("boardDelete호출 성공");
 		HashMapBinder hmb = new HashMapBinder(req);
 		Map<String,Object> pmap = new HashMap<>();
-		hmb.bindPost(pmap);
+		hmb.bind(pmap);
 		int result = 0;
 		result = boardLogic.boardDelete(pmap);
 		if(result == 1) {
