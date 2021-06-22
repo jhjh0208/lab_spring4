@@ -69,7 +69,7 @@
 	}		
 	function boardDelAction(){
 		console.log("삭제확인 호출");
-		let db_pw = <%=bm_pw%>;
+		let db_pw = "<%=bm_pw%>";
 		
 		let u_pw = $("#user_pw").textbox('getValue');
 		if(db_pw == u_pw){

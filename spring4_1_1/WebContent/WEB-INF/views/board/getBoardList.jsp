@@ -11,7 +11,6 @@
 		size = boardList.size();
 	}
 	out.print("size:"+size);
-	out.print("path:"+path);
 %>    
 <!DOCTYPE html>
 <html>
@@ -33,21 +32,22 @@
     		}		    
 		});			
 	}
-    function ins(){
-	    console.log("입력창 호출");
-	    $('#dlg_ins').dialog('open');
-	}	
     function insAction(){
         console.log("입력액션 호출");
         $('#board_ins').submit();
     }
-	function boardUpd(){
+	function boardIns(){
+	    console.log("입력창 호출");
+	    $('#dlg_ins').dialog('open');
+		console.log("asdsadasd");
+	}
+    function boardUpd(){
 		
 	}
 	function boardDel(){
-		console.log("삭제액션 호출");
-        $('#board_ins').submit();
+		
 	}
+	
 </script>
 </head>
 <body>
@@ -62,7 +62,6 @@
 		        {field:'BM_HIT',title:'조회수',width:100,align:'center'}
 		    ]]
 		});		
-		//document.querySelector("#btn_sel") -> 이건 자바스크립트이고, 아래건 jQuery
 	    $('#btn_sel').bind('click', function(){
 	        //alert('조회');
 	        boardSel();
@@ -104,10 +103,10 @@ if(size==0){
 else{//조회 결과가 있는데....
 	for(int i=0;i<size;i++){
 		Map<String,Object> rmap = boardList.get(i);
-		if(i==size) break; //마지막 글+1이면 반복문 탈출.
+		if(i==size) break;
 %>    	
         <tr>
-            <td><%=rmap.get("BM_NO") %></td> 
+            <td><%=rmap.get("BM_NO") %></td>
             <td>
 <!-- 너 댓글이니? -->       
 <%
@@ -128,7 +127,7 @@ else{//조회 결과가 있는데....
             <td>
 <%
 	if(rmap.get("BS_FILE")==null || rmap.get("BS_FILE").toString().length()==0){
-%>           
+%>            
 		<%="" %>
 <%
 	}
@@ -145,12 +144,11 @@ else{//조회 결과가 있는데....
 	}/////////////end of for
 }/////////////////end of else
 %>
-
     </tbody>
 </table>
     <div id="tb_board" style="padding:2px 5px;">
         <a id="btn_sel" href="#" class="easyui-linkbutton" iconCls="icon-search" plain="true">조회</a>
-        <a id="btn_ins" href="javascript:ins()" class="easyui-linkbutton" iconCls="icon-add" plain="true">입력</a>
+        <a id="btn_ins" href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true">입력</a>
         <a id="btn_upd" href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true">수정</a>
         <a id="btn_del" href="#" class="easyui-linkbutton" iconCls="icon-cancel" plain="true">삭제</a>
     </div>   

@@ -99,5 +99,13 @@ public class Board41Logic {
 		}
 		return result;
 	}////////////////////////////end of boardDelete
-
+//	public void cudEmp() {
+//		try {
+//			boardMDao.boardMInsert(null);			
+//			boardSDao.boardSInsert(null);
+//		} catch (Exception e) {
+//			throw e;
+//		}
+//	}
+	
 }

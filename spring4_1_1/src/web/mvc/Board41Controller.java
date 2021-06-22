@@ -223,7 +223,7 @@ public class Board41Controller extends MultiActionController {
 		logger.info("boardDelete호출 성공");
 		HashMapBinder hmb = new HashMapBinder(req);
 		Map<String,Object> pmap = new HashMap<>();
-		hmb.bind(pmap);
+		hmb.bindPost(pmap);
 		int result = 0;
 		result = boardLogic.boardDelete(pmap);
 		if(result == 1) {
