@@ -44,7 +44,7 @@
 		                            )
 	</insert>
 	<insert id="boardSInsert" parameterType="map">
-		INSERT INTO board_sub2019(bm_no,bs_seq,bs_file,bs_size) values(#{bm_no},#{bs_seq},#{bs_file},#{bs_size})
+		INSERT INTO board_sub2019(bm_no,bs_seq,bs_file,bs_size) values(#{bm_no},#{bs_seq},#{bs_file3},#{bs_size})
 	</insert>
 	<update id="hitCount" parameterType="int">
 		UPDATE board_master2019

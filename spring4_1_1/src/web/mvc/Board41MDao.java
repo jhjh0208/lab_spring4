@@ -17,7 +17,7 @@ public class Board41MDao {
 	public List<Map<String, Object>> getBoardList(Map<String, Object> pmap) {
 		List<Map<String, Object>> boardList = null;
 		//List<BoardMVO> boardList2 = null;
-		boardList = sqlSessionTemplate.selectList("getBoardList",pmap);
+		boardList = sqlSessionTemplate.selectList("getBoardList",pmap); //세션템플릿은 오라클에 접속해서 데이터를 가져오기 위한 녀석. 
 		/*
 		boardList2 = sqlSessionTemplate.selectList("getBoardMap",pmap);
 		for(BoardMVO bmvo:boardList2) {

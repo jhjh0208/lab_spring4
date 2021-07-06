@@ -48,16 +48,16 @@ public class Board41Controller extends MultiActionController {
 	// 굳이 없어도 되는 것을 형식적으로 가지고 있어야 한다. doGet안에 있는 것이니까 너도 있어야 해줄거야? 라고 말하는 것이죠
 
 	public ModelAndView getBoardList(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		
+		//req는 페이지의 정보 같은 것들이 들어 있다.
 		logger.info("getBoardList 호출 성공");	
 		HashMapBinder hmb = new HashMapBinder(req);
-		Map<String, Object> target = new HashMap<>();
-		hmb.bind(target);
+		Map<String, Object> target = new HashMap<>(); //req에 담겨 있는 수많은 정보들 중에서 우리가(사용자) 전송한 정보만 담기 위해서 만들어준 것.(target)
+		hmb.bind(target);//여기서는 타겟 안에 아무것도 안 들어있음.
 		
-		List<Map<String,Object>> boardList = null;
+		List<Map<String,Object>> boardList = null; //타겟은 직접 컨트롤러->로직->다오를 갔다 오는 녀석이고 보더리스트는 각 위치에 배정되어 있는 놈.
 		
 		boardList=boardLogic.getBoardList(target);//where bm_no=? and bm_title LIKE '%'||?||'%'
-		logger.info("boardList:"+boardList);//
+		logger.info("boardList:"+boardList);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("board/getBoardList");
 		mav.addObject("boardList", boardList);
@@ -119,6 +119,7 @@ public class Board41Controller extends MultiActionController {
 		HashMapBinder hmb = new HashMapBinder(req);
 		Map<String,Object> target = new HashMap<>();
 		hmb.bind(target);//bm_no값 담음.
+		logger.info(target.get("bm_no"));
 		target.put("gubun", "detail");
 		logger.info("bm_no : "+target.get("bm_no"));
 		List<Map<String,Object>> boardDetail = null;
@@ -226,6 +227,25 @@ public class Board41Controller extends MultiActionController {
 		hmb.bindPost(pmap);
 		int result = 0;
 		result = boardLogic.boardDelete(pmap);
+		if(result == 1) {
+			res.sendRedirect("./getBoardList.sp4");
+		}
+		else {
+			res.sendRedirect("등록실패 페이지 이동처리");
+		}
+	}
+	public void cudBoard(HttpServletRequest req, HttpServletResponse res) 
+			throws Exception
+	{
+		logger.info("cudBoard 호출 성공");
+		HashMapBinder hmb = new HashMapBinder(req);
+		Map<String,Object> pmap = new HashMap<>();
+		pmap.put("bm_title","Title Test");
+		pmap.put("bm_writer","작성자");
+		pmap.put("bm_content","내용");
+		//사용자가 입력한 값이나 서버에서 클라이언트에게 요청한 값 넘김.
+		int result = 0;
+		result = boardLogic.boardInsert(pmap);
 		if(result == 1) {
 			res.sendRedirect("./getBoardList.sp4");
 		}
