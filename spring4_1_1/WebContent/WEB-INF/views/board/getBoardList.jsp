@@ -3,7 +3,7 @@
 <%@ page import="java.util.*" %>    
 <%
 	StringBuilder path = new StringBuilder(request.getContextPath());
-	path.append("/");
+	path.append("/"); 
 	List<Map<String,Object>> boardList = null;
 	boardList = (List<Map<String,Object>>)request.getAttribute("boardList");
 	int size = 0;
